@@ -1,4 +1,4 @@
-package IE1interfazgrafica;
+package ie1interfazgrafica;
 
 public abstract class PersonaAcademica {
     private String nombre;

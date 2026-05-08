@@ -1,10 +1,10 @@
-package IE1interfazgrafica;
+package ie1interfazgrafica;
 
 public interface Evaluable {
 
     String getCondicion();
     double getNota();
-    boolenan estaAprobado();
+    boolean estaAprobado();
 
 }
 
