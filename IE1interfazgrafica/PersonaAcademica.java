@@ -1,4 +1,4 @@
-package IE1interfazgrfica;
+package IE1interfazgrafica;
 
 public abstract class PersonaAcademica {
     private String nombre;
@@ -38,7 +38,7 @@ public abstract class PersonaAcademica {
         }
         this.legajo = Legajo; 
    }
-   
+
    public abstract void mostrarResumen();
 
 }
