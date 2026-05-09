@@ -31,5 +31,30 @@ public class Materia implements Consultable
         return anio;
     }
 
+    public void setCodigo (String codigo)
+    {
+        if (codigo== null || codigo.length() < 3 || codigo.length() > 10)
+        {
+            throw new IllegalArgumentException("Codigo debe tener entre 3 y 10 caracteres");
+        }
+        this.codigo = codigo;
+    }
+    
+    public void setCuatrimestre (int cuatrimestre)
+    {
+        if (cuatrimestre != 1 && cuatrimestre != 2)
+        {
+            throw new IllegalArgumentException("Cutrimestre debd ser 1 o 2");
+        }
+        this.cuatrimestre= cuatrimestre;
+    } 
+    public void setAnio (int anio)
+    {
 
+        if (anio< 2000)
+        {
+            throw new IllegalArgumentException ("Ano invalido");
+        }
+        this.anio = anio;
+    }
 }
