@@ -78,4 +78,37 @@ public class Estudiante extends PersonaAcademica implements Consultable
         return null;
     }
 
+
+    //Promedio general
+    public double getPromedioGeneral()
+    {
+        if (materias.isEmpty())
+        {
+            return 0;
+        }
+        double suma=0;
+        for(InscripcionMateria i:materias)
+        {
+            suma = suma + i.getNota();
+        }
+        return suma/materias.size();
+    }
+
+
+    //Materias criticas(Asistencia entre 75% y 85%)
+
+    public ArrayList<InscripcionMateria> getMateriasCriticas()
+    {
+        ArrayList<InscripcionMateria> criticas = new ArrayList<>();
+        for(InscripcionMateria i:materias)
+        {
+            double p =i.getPorcentajeAsistencia();
+            if (p>=75 && p<=85)
+            {
+                criticas.add(i);
+            }
+        }
+        return criticas;
+    }
+
 }
