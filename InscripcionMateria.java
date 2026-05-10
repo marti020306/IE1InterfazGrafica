@@ -82,5 +82,21 @@ public class IncripcionMateria implements Consultable
         }
         return suma/notas.size();
     }
-
+    @Override
+    public boolean estaAprobado()
+    {
+        return getPromedio () >= 6 && getCondicion().equals("Regular");
+    }
+    public Arraylist<Double> getNotas()
+    {
+        return notas;
+    }
+    public int getTotalClases()
+    {
+        return totalClases;
+    }
+    public int getClasesAsistidas()
+    {
+        return clasesAsistidas;
+    }
 }
