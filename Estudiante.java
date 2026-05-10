@@ -15,6 +15,7 @@ public class Estudiante extends PersonaAcademica implements Consultable
         this.materias = new ArrayList<>();
     }
 
+
     //Carrera
     public String getCarrera()
     {
@@ -29,6 +30,7 @@ public class Estudiante extends PersonaAcademica implements Consultable
         }
         this.carrera = carrera;
     }
+
 
     //Año de ingreso
 
@@ -45,6 +47,7 @@ public class Estudiante extends PersonaAcademica implements Consultable
         this.anioIngreso = anioIngreso;
     }
 
+
     //Inscripcion a materia
     public ArrayList<InscripcionMateria> getMaterias()
     {
@@ -58,6 +61,21 @@ public class Estudiante extends PersonaAcademica implements Consultable
         }
         materias.add(new InscripcionMateria(m));
     }
-    
+
+    public void DarDeBaja(String codigoMateria)
+    {
+        materias.removeIf(i -> i.getMateria().getCodigo().equals(codigoMateria));
+    }
+    public InscripcionMateria getInscripcion(String codigoMateria)
+    {
+        for (InscripcionMateria i:materias)
+        {
+            if (i.getMateria() .getCodigo().equalsIgnoreCase(codigoMateria))
+            {
+                return i;
+            }
+        }
+        return null;
+    }
 
 }
