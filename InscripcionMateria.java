@@ -58,7 +58,7 @@ public class IncripcionMateria implements Consultable
     }
      @Override 
      public String getCondicion()
-     {
+    {
         if (getPorcentajeAsistencia () >= MINIMO_REGULAR)
         {
             return "Regular";
@@ -67,6 +67,20 @@ public class IncripcionMateria implements Consultable
         {
             return "Libre";
         }
-     }
+    }
+     @Override
+     public double getPromedio()
+    {
+        if(notas.isEmpty())
+        {
+            return 0;
+        }
+        double suma=0;
+        for (double nota: notas)
+        {
+            suma+=nota;
+        }
+        return suma/notas.size();
+    }
 
 }
