@@ -2,23 +2,23 @@ package ie1interfazgrafica;
  
 import java.util.Arraylist;
 
-public class IncripcionMateria implements Consultable
+public class InscripcionMateria implements Evaluable;
 {
     private Materia materia;
     private int totalClases;
     private int clasesAsistidas;
-    private Arraylist <Double> notas;
+    private ArrayList <Double> notas;
 
-    private static final int MAX_NOTAS = 4;
+    private static final int MAX_NOTAS = 5;
     private static final double MINIMO_REGULAR = 75.0;
 
 
     public InscripcionMateria (Materia materia)
     {
-        this,materia=materia;
+        thismateria=materia;
         this.totalClases=0;
-        this.clasesAsisridas=0;
-        this.notas= new Arraylist<Double>();
+        this.clasesAsistidas=0;
+        this.notas= new ArrayList<Double>();
     }
 
     public Materia getMateria()
@@ -54,7 +54,7 @@ public class IncripcionMateria implements Consultable
         {
             return 0;
         }
-        return (clasesAsistidas * 100.0)/ totalClases
+        return (clasesAsistidas * 100.0)/ totalClases;
     }
      @Override 
      public String getCondicion()

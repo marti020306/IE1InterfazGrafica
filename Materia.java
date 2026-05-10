@@ -7,7 +7,7 @@ public class Materia implements Consultable
     private int cuatrimestre;
     private int anio;
 
-    public Materia (String nombre, String codigo, int cautrimestre, int anio )
+    public Materia (String nombre, String codigo, int cuatrimestre, int anio )
     {
         this.nombre=nombre;
         setCodigo(codigo);
@@ -43,17 +43,17 @@ public class Materia implements Consultable
 
     public void setCuatrimestre (int cuatrimestre)
     {
-        if (cuatrrimestre != 1 && cuatrimestre != 2)
+        if (cuatrimestre != 1 && cuatrimestre != 2)
         {
-            throw new IllegalrgumentException("Cuatrimestre debe ser 1 o 2");
+            throw new IllegalArgumentException("Cuatrimestre debe ser 1 o 2");
         }
         this.cuatrimestre=cuatrimestre;
     }
-    public void SetAnio (int anio)
+    public void setAnio (int anio)
     {
         if (anio<2000)
         {
-            throw new IllegalArgumentException("Año invalido")
+            throw new IllegalArgumentException("Año invalido");
         }
         this.anio=anio;
     }
