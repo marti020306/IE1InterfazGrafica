@@ -21,5 +21,52 @@ public class IncripcionMateria implements Consultable
         this.notas= new Arraylist<Double>();
     }
 
-    
+    public Materia getMateria()
+    {
+        return materia;
+    }
+
+    public void registrarAsistencia (boolean presente)
+    {
+        totalClases++;
+        if (presente)
+        {
+            clasesAsistidas++;
+        }
+    }
+
+    public void agregarNota (double nota)
+    {
+        if (nota< 0 || nota > 10)
+        {
+            throw new IllegalArgumentException("La nota debe ser entre 0 y 10");
+        }
+        if (notas.size() >= MAX_NOTAS)
+        {
+            throw new IllegalStateException("No se pueden agregar mas de 5 notas");
+        }
+        notas.add(nota);
+    }
+
+    public double getPorcentajeAsistencia()
+    {
+        if (totalClases == 0)
+        {
+            return 0;
+        }
+        return (clasesAsistidas * 100.0)/ totalClases
+    }
+     @Override 
+     public String getCondicion()
+     {
+        if (getPorcentajeAsistencia () >= MINIMO_REGULAR)
+        {
+            return "Regular";
+        }
+        else 
+        {
+            return "Libre";
+        }
+     }
+
 }
