@@ -111,4 +111,15 @@ public class Estudiante extends PersonaAcademica implements Consultable
         return criticas;
     }
 
+    //Mostrar resultados
+    @Override
+    public void mostrarResumen()
+    {
+        System.out.println("===Perfil del estudiante ===");
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Legajo: " + getLegajo());
+        System.out.println("Carrera: " + getCarrera());
+        System.out.println("Año de ingreso: " + getAnioIngreso());
+        System.out.println("Materias inscriptas:"+ materias.size());
+    }
 }
