@@ -14,4 +14,19 @@ public class Estudiante extends PersonaAcademica implements Consultable
         setAnioIngreso(anioIngreso);
         this.materias = new ArrayList<>();
     }
+
+    //Carrera
+    public String getCarrera()
+    {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera)
+    {
+        if (carrera == null || carrera.isEmpty())
+        {
+            throw new IllegalArgumentException("Carrera invalida")
+        }
+        this.carrera = carrera;
+    }
 }
