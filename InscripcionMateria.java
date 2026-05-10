@@ -1,4 +1,4 @@
-package academico
+package ie1interfazgrafica;
  
 import java.util.Arraylist;
 
@@ -69,7 +69,7 @@ public class IncripcionMateria implements Consultable
         }
     }
      @Override
-     public double getPromedio()
+     public double getNota()
     {
         if(notas.isEmpty())
         {
@@ -85,7 +85,7 @@ public class IncripcionMateria implements Consultable
     @Override
     public boolean estaAprobado()
     {
-        return getPromedio () >= 6 && getCondicion().equals("Regular");
+        return getNota () >= 6 && getCondicion().equals("Regular");
     }
     public Arraylist<Double> getNotas()
     {

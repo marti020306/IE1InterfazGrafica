@@ -1,4 +1,4 @@
-package academico;
+package ie1interfazgrafica;
 
 public class Materia implements Consultable
 {
