@@ -26,7 +26,7 @@ public class Estudiante extends PersonaAcademica implements Consultable
     {
         if (carrera == null || carrera.isEmpty())
         {
-            throw new IllegalArgumentException("Carrera invalida")
+            throw new IllegalArgumentException("Carrera invalida");
         }
         this.carrera = carrera;
     }
@@ -62,9 +62,9 @@ public class Estudiante extends PersonaAcademica implements Consultable
         materias.add(new InscripcionMateria(m));
     }
 
-    public void DarDeBaja(String codigoMateria)
+    public void darDeBaja(String codigoMateria)
     {
-        materias.removeIf(i -> i.getMateria().getCodigo().equals(codigoMateria));
+        materias.removeIf(i -> i.getMateria().getCodigo().equalsIgnoreCase(codigoMateria));
     }
     public InscripcionMateria getInscripcion(String codigoMateria)
     {
