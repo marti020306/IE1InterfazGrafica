@@ -1,6 +1,6 @@
 package ie1interfazgrafica;
  
-import java.util.Arraylist;
+import java.util.ArrayList;
 
 public class InscripcionMateria implements Evaluable
 {
@@ -15,7 +15,7 @@ public class InscripcionMateria implements Evaluable
 
     public InscripcionMateria (Materia materia)
     {
-        thismateria=materia;
+        this.materia=materia;
         this.totalClases=0;
         this.clasesAsistidas=0;
         this.notas= new ArrayList<Double>();
