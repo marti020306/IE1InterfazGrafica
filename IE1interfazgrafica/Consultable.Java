@@ -1,4 +1,4 @@
-package ie1interfazgrafica;
+package IE1interfazgrafica;
 
 public interface Consultable { 
 

@@ -1,4 +1,4 @@
-package ie1interfazgrafica;
+package IE1interfazgrafica;
  
 import java.util.ArrayList;
 
@@ -87,7 +87,7 @@ public class InscripcionMateria implements Evaluable
     {
         return getNota () >= 6 && getCondicion().equals("Regular");
     }
-    public Arraylist<Double> getNotas()
+    public ArrayList<Double> getNotas()
     {
         return notas;
     }

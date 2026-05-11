@@ -1,4 +1,4 @@
-package ie1interfazgrafica;
+package IE1interfazgrafica;
 import java.util.ArrayList;
 
 public class Estudiante extends PersonaAcademica implements Consultable
