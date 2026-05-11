@@ -2,7 +2,7 @@ package ie1interfazgrafica;
  
 import java.util.Arraylist;
 
-public class InscripcionMateria implements Evaluable;
+public class InscripcionMateria implements Evaluable
 {
     private Materia materia;
     private int totalClases;
