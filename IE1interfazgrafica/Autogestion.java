@@ -2,14 +2,17 @@ package IE1interfazgrafica;
 
 import java.util.Scanner;
 
-public class Autogestion {
+public class Autogestion 
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Scanner sc = new Scanner(System.in);
         Estudiante alumno = new Estudiante("Martina", "123", "Sistemas", 2023);
         
         int opcion;
-        do {
+        do 
+        {
             System.out.println("\n=== SISTEMA DE AUTOGESTIÓN ===");
             System.out.println("1. Ver Perfil");
             System.out.println("2. Gestión de Materias (Inscribir/Baja/Listar)");
@@ -23,7 +26,8 @@ public class Autogestion {
             sc.nextLine(); 
 
 
-            switch (opcion) {
+            switch (opcion)
+            {
                 case 1:
                     alumno.mostrarResumen();
                     break;
@@ -52,14 +56,15 @@ public class Autogestion {
   
     }
 
-     private static void menuMaterias(Estudiante alumno, Scanner sc) {
-        System.out.println("\n--- GESTIÓN DE MATERIAS ---");
-        System.out.println("a. Inscribirse a Materia");
-        System.out.println("b. Darse de Baja");
-        System.out.println("c. Listar Materias");
-        System.out.println("d. Buscar por Nombre (Sobrecarga)");
-        System.out.print("Opción: ");
-        String subOp = sc.nextLine();
+         private static void menuMaterias(Estudiante alumno, Scanner sc) 
+       {
+            System.out.println("\n--- GESTIÓN DE MATERIAS ---");
+            System.out.println("a. Inscribirse a Materia");
+            System.out.println("b. Darse de Baja");
+            System.out.println("c. Listar Materias");
+            System.out.println("d. Buscar por Nombre (Sobrecarga)");
+            System.out.print("Opción: ");
+            String subOp = sc.nextLine();
 
 
          switch (subOp.toLowerCase())
@@ -91,53 +96,80 @@ public class Autogestion {
                 System.out.println("Opción inválida.");
                 break;
             }
-    }
+        }
             private static void registrarAsistencia(Estudiante alumno, Scanner sc) 
             {
                 System.out.print("Código de materia: ");
                 String cod = sc.nextLine();
                 InscripcionMateria i = alumno.buscarMateria(cod);
                     if (i != null) 
-                        {
+                    {
                     System.out.print("¿Estuvo presente? (true/false): ");
                      i.registrarAsistencia(sc.nextBoolean());
                      sc.nextLine(); 
             
                      double porc = i.getPorcentajeAsistencia();
-                    System.out.println("Asistencia actual: " + porc + "%");
+                     System.out.println("Asistencia actual: " + porc + "%");
             
-                    if (porc < 75) System.out.println(">>> ALERTA: El alumno ha quedado LIBRE.");
-                    else if (porc < 80) System.out.println(">>> AVISO: Alumno en ZONA DE RIESGO.");
-        }           else 
+                      if (porc < 75) System.out.println(">>> ALERTA: El alumno ha quedado LIBRE.");
+                      else if (porc < 80) System.out.println(">>> AVISO: Alumno en ZONA DE RIESGO.");
+                    }           
+                    else 
                     {
-            System.out.println("Materia no encontrada.");
+                    System.out.println("Materia no encontrada.");
                     }
 
 
-          private static void registrarNota(Estudiante alumno, Scanner sc)
-          {
-            System.out.print("Código de materia: ");
-            String cod = sc.nextLine();
-             InscripcionMateria i = alumno.buscarMateria(cod);
-
-                if (i != null) 
+                private static void registrarNota(Estudiante alumno, Scanner sc)
                 {
-                 System.out.print("Ingrese la nota (0-10): ");
-                 double nota = sc.nextDouble(); sc.nextLine();
-                 i.agregarNota(nota);
+                    System.out.print("Código de materia: ");
+                    String cod = sc.nextLine();
+                    InscripcionMateria i = alumno.buscarMateria(cod);
+
+                     if (i != null) 
+                     {
+                        System.out.print("Ingrese la nota (0-10): ");
+                        double nota = sc.nextDouble(); sc.nextLine();
+                        i.agregarNota(nota);
                     
-                 System.out.println("Lista de notas: " + i.getNotas());
-                 System.out.println("Nuevo promedio: " + i.getNota());
+                        System.out.println("Lista de notas: " + i.getNotas());
+                        System.out.println("Nuevo promedio: " + i.getNota());
             
-                  if (nota >= 6) System.out.println("¡Instancia Aprobada!");
-                  else System.out.println("Instancia No Aprobada.");
-                }
+                        if (nota >= 6) System.out.println("¡Instancia Aprobada!");
+                         else System.out.println("Instancia No Aprobada.");
+                     }
+            }
+
+          private static void mostrarReportes(Estudiante alumno) 
+            { 
+                System.out.println("\n========== REPORTES ACADÉMICOS ==========");
+                System.out.println("\n1. SITUACIÓN GENERAL:");
+
+                for (InscripcionMateria i : alumno.getMaterias())
+                    {
+                    System.out.println("Materia: " + i.getMateria().getNombre() + " | Estado: " + i.getCondicion());
+                    }
+
+                    System.out.println("PROMEDIO GENERAL (RECURSIVO): " + String.format("%.2f", alumno.getPromedioGeneral()));
+
+                    System.out.println("\n2. MATERIAS EN RIESGO (Asistencia 75%-85%):");
+
+                     if (alumno.getMateriasCriticas().isEmpty())
+                        {
+                        System.out.println("No hay materias en riesgo.");
+                        }           
+                     else 
+                     {
+                    for (InscripcionMateria i : alumno.getMateriasCriticas()) 
+                        {
+                         System.out.println("!!! " + i.getMateria().getNombre() + " - Asistencia: " + i.getPorcentajeAsistencia() + "%");
+                        }
+                     }
+                         System.out.println("==========================================");
           }
+        }
 
-          
-
-    }
-
+}
 
 
 
@@ -145,4 +177,5 @@ public class Autogestion {
 
 
 
-}    
+
+   
