@@ -138,7 +138,11 @@ public class Autogestion
         System.out.println("\n========== REPORTES ACADÉMICOS ==========");
         System.out.println("\n1. SITUACIÓN GENERAL:");
         for (InscripcionMateria i : alumno.getMaterias()) {
-            System.out.println("Materia: " + i.getMateria().getNombre() + " | Estado: " + i.getCondicion());
+            System.out.println("Materia: " + i.getMateria().getNombre() +
+            " | Estado: " + i.getCondicion() +
+            " | Asistencia: " + i.getPorcentajeAsistencia() + "%" +
+            " | Promedio: " + i.getNota());
+           
         }
         System.out.println("PROMEDIO GENERAL (RECURSIVO): " + String.format("%.2f", alumno.getPromedioGeneral()));
 
