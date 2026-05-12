@@ -32,7 +32,8 @@ public abstract class PersonaAcademica {
 
    public void setLegajo(String legajo){
         
-        if (legajo == null || legajo.isEmpty()){
+        if (legajo ==null){
+
             throw new IllegalArgumentException("Legajo Invalido");
         }
         this.legajo = legajo; 
