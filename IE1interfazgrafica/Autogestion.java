@@ -35,9 +35,35 @@ public class Autogestion
                 int anio = sc.nextInt();
                 Materia m = new Materia(nombre, codigo, cuatri, anio);
                 alumno.inscribirse(m);
-                case 3 -> System.out.print("Codigo materia: ");
+                case 3 -> {System.out.print("Codigo materia: ");
                 String cod = sc.nextLine();
                 InscripcionMateria i = alumno.getInscripcion(cod);
+                  
+                   if (i != null)
+                   {System.out.print("¿Presente? (true/false): ");
+                   boolean p = sc.nextBoolean();
+                   sc.nextLine();
+                   i.registrarAsistencia(p);
+                   }
+                   
+                       }
+                case 4 -> {System.out.print("Codigo materia: ");
+                    String cod = sc.nextLine();
+                    InscripcionMateria i = alumno.getInscripcion(cod);
+                    if (i != null)
+                    {
+                        System.out.print("Nota: ");
+                        double nota = sc.nextDouble();
+                        sc.nextLine();
+                        i.agregarNota(nota);
+                    }
+                          }
+
+                        
+                    
+
+                }    
+                   
             }
         }        
 
