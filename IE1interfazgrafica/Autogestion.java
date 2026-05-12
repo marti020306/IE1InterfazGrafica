@@ -112,10 +112,34 @@ public class Autogestion {
                     {
             System.out.println("Materia no encontrada.");
                     }
+
+
+          private static void registrarNota(Estudiante alumno, Scanner sc)
+          {
+            System.out.print("Código de materia: ");
+            String cod = sc.nextLine();
+             InscripcionMateria i = alumno.buscarMateria(cod);
+
+                if (i != null) 
+                {
+                 System.out.print("Ingrese la nota (0-10): ");
+                 double nota = sc.nextDouble(); sc.nextLine();
+                 i.agregarNota(nota);
+                    
+                 System.out.println("Lista de notas: " + i.getNotas());
+                 System.out.println("Nuevo promedio: " + i.getNota());
+            
+                  if (nota >= 6) System.out.println("¡Instancia Aprobada!");
+                  else System.out.println("Instancia No Aprobada.");
+                }
+          }
+
+          
+
     }
 
 
-    
+
 
 
 
