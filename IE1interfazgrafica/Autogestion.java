@@ -61,8 +61,9 @@ public class Autogestion {
         System.out.print("Opción: ");
         String subOp = sc.nextLine();
 
-        
-         switch (subOp.toLowerCase()) {
+
+         switch (subOp.toLowerCase())
+          {
             case "a":
                 System.out.print("Nombre: "); String n = sc.nextLine();
                 System.out.print("Código: "); String c = sc.nextLine();
@@ -89,11 +90,32 @@ public class Autogestion {
             default:
                 System.out.println("Opción inválida.");
                 break;
-        }
+            }
+    }
+            private static void registrarAsistencia(Estudiante alumno, Scanner sc) 
+            {
+                System.out.print("Código de materia: ");
+                String cod = sc.nextLine();
+                InscripcionMateria i = alumno.buscarMateria(cod);
+                    if (i != null) 
+                        {
+                    System.out.print("¿Estuvo presente? (true/false): ");
+                     i.registrarAsistencia(sc.nextBoolean());
+                     sc.nextLine(); 
+            
+                     double porc = i.getPorcentajeAsistencia();
+                    System.out.println("Asistencia actual: " + porc + "%");
+            
+                    if (porc < 75) System.out.println(">>> ALERTA: El alumno ha quedado LIBRE.");
+                    else if (porc < 80) System.out.println(">>> AVISO: Alumno en ZONA DE RIESGO.");
+        }           else 
+                    {
+            System.out.println("Materia no encontrada.");
+                    }
     }
 
 
-
+    
 
 
 
