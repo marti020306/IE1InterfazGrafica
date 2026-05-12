@@ -30,13 +30,12 @@ public abstract class PersonaAcademica {
       return legajo;
    }
 
-   public void setLegajo(String Legajo){
+   public void setLegajo(String legajo){
         
-        if (legajo ==null){
-
+        if (legajo == null || legajo.isEmpty()){
             throw new IllegalArgumentException("Legajo Invalido");
         }
-        this.legajo = Legajo; 
+        this.legajo = legajo; 
    }
 
    public abstract void mostrarResumen();
