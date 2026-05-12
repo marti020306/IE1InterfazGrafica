@@ -22,7 +22,7 @@ public class Autogestion {
             opcion = sc.nextInt();
             sc.nextLine(); 
 
-            
+
             switch (opcion) {
                 case 1:
                     alumno.mostrarResumen();
@@ -48,4 +48,55 @@ public class Autogestion {
             }
         } while (opcion != 0);
         sc.close();
+   
+  
     }
+
+     private static void menuMaterias(Estudiante alumno, Scanner sc) {
+        System.out.println("\n--- GESTIÓN DE MATERIAS ---");
+        System.out.println("a. Inscribirse a Materia");
+        System.out.println("b. Darse de Baja");
+        System.out.println("c. Listar Materias");
+        System.out.println("d. Buscar por Nombre (Sobrecarga)");
+        System.out.print("Opción: ");
+        String subOp = sc.nextLine();
+
+        
+         switch (subOp.toLowerCase()) {
+            case "a":
+                System.out.print("Nombre: "); String n = sc.nextLine();
+                System.out.print("Código: "); String c = sc.nextLine();
+                System.out.print("Cuatrimestre: "); int cu = sc.nextInt();
+                System.out.print("Año: "); int a = sc.nextInt(); sc.nextLine();
+                alumno.inscribirse(new Materia(n, c, cu, a));
+                System.out.println("Inscrito correctamente.");
+                break;
+            case "b":
+                System.out.print("Código de materia para baja: ");
+                alumno.darDeBaja(sc.nextLine());
+                System.out.println("Materia eliminada.");
+                break;
+            case "c":
+                System.out.println("Materias de " + alumno.getNombre() + ":");
+                for (InscripcionMateria i : alumno.getMaterias()) {
+                    System.out.println("- " + i.getMateria().getNombre() + " (" + i.getCondicion() + ")");
+                }
+                break;
+            case "d":
+                System.out.print("Nombre de la materia: ");
+                alumno.buscarMateria(sc.nextLine(), true); 
+                break;
+            default:
+                System.out.println("Opción inválida.");
+                break;
+        }
+    }
+
+
+
+
+
+
+
+
+}    
