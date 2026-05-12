@@ -24,20 +24,20 @@ public class Autogestion
 
             switch (opcion)
             {
-                case 1 -> alumno.mostrarResumen();
-                case 2 -> System.out.print("Nombre:");
-                String nombre = sc.nextLine();
-                System.out.print("Codigo:");
-                String codigo = sc.nextLine();
-                System.out.print("Cuatrimestre:");
-                int cuatri = sc.nextInt();
-                System.out.print("Año:");
-                int anio = sc.nextInt();
-                Materia m = new Materia(nombre, codigo, cuatri, anio);
-                alumno.inscribirse(m);
-                case 3 -> {System.out.print("Codigo materia: ");
-                String cod = sc.nextLine();
-                InscripcionMateria i = alumno.getInscripcion(cod);
+                 case 1 -> alumno.mostrarResumen();
+                 case 2 -> { System.out.print("Nombre:");
+                 String nombre = sc.nextLine();
+                 System.out.print("Codigo:");
+                 String codigo = sc.nextLine();
+                 System.out.print("Cuatrimestre:");
+                 int cuatri = sc.nextInt();
+                 System.out.print("Año:");
+                 int anio = sc.nextInt();
+                 Materia m = new Materia(nombre, codigo, cuatri, anio);
+                 alumno.inscribirse(m);
+                 case 3 -> {System.out.print("Codigo materia: ");
+                 String cod = sc.nextLine();
+                 InscripcionMateria i = alumno.getInscripcion(cod);
                   
                    if (i != null)
                    {System.out.print("¿Presente? (true/false): ");
@@ -47,7 +47,7 @@ public class Autogestion
                    }
                    
                        }
-                case 4 -> {System.out.print("Codigo materia: ");
+                 case 4 -> {System.out.print("Codigo materia: ");
                     String cod = sc.nextLine();
                     InscripcionMateria i = alumno.getInscripcion(cod);
                     if (i != null)
@@ -58,22 +58,22 @@ public class Autogestion
                         i.agregarNota(nota);
                     }
                           }
+                 case 5 -> { for (InscripcionMateria i: alumno.getMaterias());
+                    { 
+                        System.out.println(i.getMateria().getNombre());
+                        i.mostrarEstadoAcademico();
+                    }
+  
 
-                        
-                    
-
-                }    
-                   
-            }
-        }        
-
-        
-    }
-
+                    }
+                 case 0 -> System.out.println("Chau!");
+                 default -> System.out.println("Opcion Invalida");
 
 
-
-
+                }
+            } while (opcion != 0);
+        }
+    }   
 
 
 }
