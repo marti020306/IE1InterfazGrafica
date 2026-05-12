@@ -80,18 +80,15 @@ public class Estudiante extends PersonaAcademica implements Consultable
 
 
     //Promedio general
-    public double getPromedioGeneral()
-    {
-        if (materias.isEmpty())
-        {
-            return 0;
-        }
-        double suma=0;
-        for(InscripcionMateria i:materias)
-        {
-            suma = suma + i.getNota();
-        }
-        return suma/materias.size();
+  
+    public double getPromedioGeneral() {
+        if (materias.isEmpty()) return 0;
+        return calcularSumaNotasRecursiva(0) / materias.size();
+    }
+
+    private double calcularSumaNotasRecursiva(int index) {
+        if (index == materias.size()) return 0;
+        return materias.get(index).getNota() + calcularSumaNotasRecursiva(index + 1);
     }
 
 
