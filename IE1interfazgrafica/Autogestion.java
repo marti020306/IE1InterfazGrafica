@@ -51,7 +51,7 @@ public class Autogestion
                     System.out.println("¡Hasta luego!");
                     break;
                 default:
-                    System.out.println("Opción inválida.");
+                    System.out.println("Opción invalida.");
                     break;
             }
         } while (opcion != 0);
@@ -59,26 +59,32 @@ public class Autogestion
     }
 
     private static void menuMaterias(Estudiante alumno, Scanner sc) {
-        System.out.println("\n--- GESTIÓN DE MATERIAS ---");
+        System.out.println("\n--- GESTION DE MATERIAS ---");
         System.out.println("a. Inscribirse a Materia");
         System.out.println("b. Darse de Baja");
         System.out.println("c. Listar Materias");
-        System.out.println("d. Buscar por Nombre (Sobrecarga)");
-        System.out.print("Opción: ");
+        System.out.println("d. Buscar por Nombre");
+        System.out.print("Opcion: ");
         String subOp = sc.nextLine();
 
-        // Se cambia -> por : y se agrega el break;
         switch (subOp.toLowerCase()) {
             case "a":
                 System.out.print("Nombre: "); String n = sc.nextLine();
-                System.out.print("Código: "); String c = sc.nextLine();
+                System.out.print("Codigo: "); String c = sc.nextLine();
                 System.out.print("Cuatrimestre: "); int cu = sc.nextInt();
                 System.out.print("Año: "); int a = sc.nextInt(); sc.nextLine();
-                alumno.inscribirse(new Materia(n, c, cu, a));
-                System.out.println("Inscrito correctamente.");
-                break;
+        try
+        {
+            alumno.inscribirse(new Materia(n, c, cu, a));
+            System.out.println("Inscripto correctamente.");
+        }
+        catch (IllegalArgumentException e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+        break;
             case "b":
-                System.out.print("Código de materia para baja: ");
+                System.out.print("Codigo de materia para baja: ");
                 alumno.darDeBaja(sc.nextLine());
                 System.out.println("Materia eliminada.");
                 break;
@@ -93,13 +99,13 @@ public class Autogestion
                 alumno.buscarMateria(sc.nextLine(), true); 
                 break;
             default:
-                System.out.println("Opción inválida.");
+                System.out.println("Opcion invalida.");
                 break;
         }
     }
 
     private static void registrarAsistencia(Estudiante alumno, Scanner sc) {
-        System.out.print("Código de materia: ");
+        System.out.print("Codigo de materia: ");
         String cod = sc.nextLine();
         InscripcionMateria i = alumno.buscarMateria(cod);
         if (i != null) {
@@ -118,7 +124,7 @@ public class Autogestion
     }
 
     private static void registrarNota(Estudiante alumno, Scanner sc) {
-        System.out.print("Código de materia: ");
+        System.out.print("Codigo de materia: ");
         String cod = sc.nextLine();
         InscripcionMateria i = alumno.buscarMateria(cod);
         if (i != null) {
@@ -135,8 +141,8 @@ public class Autogestion
     }
 
     private static void mostrarReportes(Estudiante alumno) {
-        System.out.println("\n========== REPORTES ACADÉMICOS ==========");
-        System.out.println("\n1. SITUACIÓN GENERAL:");
+        System.out.println("\n========== REPORTES ACADEMICOS ==========");
+        System.out.println("\n1. SITUACION GENERAL:");
         for (InscripcionMateria i : alumno.getMaterias()) {
             System.out.println("Materia: " + i.getMateria().getNombre() +
             " | Estado: " + i.getCondicion() +

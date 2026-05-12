@@ -140,5 +140,6 @@ public class Estudiante extends PersonaAcademica implements Consultable
         System.out.println("Carrera: " + getCarrera());
         System.out.println("Año de ingreso: " + getAnioIngreso());
         System.out.println("Promedio General: " + String.format("%.2f", getPromedioGeneral()));
+        System.out.println("Materias inscriptas: " + materias.size());
     }
 }
