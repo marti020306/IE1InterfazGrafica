@@ -18,14 +18,14 @@ public class Autogestion
         alumno.inscribirse(m3);
         int opcion;
         do {
-            System.out.println("\n=== SISTEMA DE AUTOGESTIÓN ===");
+            System.out.println("\n=== SISTEMA DE AUTOGESTION ===");
             System.out.println("1. Ver Perfil");
-            System.out.println("2. Gestión de Materias (Inscribir/Baja/Listar)");
+            System.out.println("2. Gestion de Materias (Inscribir/Baja/Listar)");
             System.out.println("3. Registrar Asistencia");
-            System.out.println("4. Registrar Calificación");
+            System.out.println("4. Registrar Calificacion");
             System.out.println("5. Ver Reportes Académicos");
             System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             
             opcion = sc.nextInt();
             sc.nextLine(); 
