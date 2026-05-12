@@ -15,8 +15,30 @@ public class Estudiante extends PersonaAcademica implements Consultable
         this.materias = new ArrayList<>();
     }
 
+    // --- MÉTODOS DE BÚSQUEDA 
+    public InscripcionMateria buscarMateria(String codigo) {
+        for (InscripcionMateria i : materias) {
+            if (i.getMateria().getCodigo().equalsIgnoreCase(codigo)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    public void buscarMateria(String nombre, boolean esNombre) {
+        boolean encontrada = false;
+        for (InscripcionMateria i : materias) {
+            if (i.getMateria().getNombre().toLowerCase().contains(nombre.toLowerCase())) {
+                System.out.println("Encontrada: " + i.getMateria().getNombre() + " [" + i.getMateria().getCodigo() + "]");
+                encontrada = true;
+            }
+        }
+        if (!encontrada) System.out.println("No se encontraron materias con ese nombre.");
+    }
+
 
     //Carrera
+
     public String getCarrera()
     {
         return carrera;
