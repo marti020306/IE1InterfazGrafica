@@ -6,9 +6,16 @@ public class Autogestion
 {
 
     public static void main(String[] args) {
+
+       
         Scanner sc = new Scanner(System.in);
         Estudiante alumno = new Estudiante("Martina", "123", "Sistemas", 2023);
-
+        Materia m1 = new Materia("Matematica", "MAT", 1, 2024);
+        Materia m2 = new Materia("Programacion", "PRO", 1, 2024);
+        Materia m3 = new Materia("Base de Datos", "BDD", 2, 2024);
+        alumno.inscribirse(m1);
+        alumno.inscribirse(m2);
+        alumno.inscribirse(m3);
         int opcion;
         do {
             System.out.println("\n=== SISTEMA DE AUTOGESTIÓN ===");
@@ -143,6 +150,26 @@ public class Autogestion
                 System.out.println("!!! " + i.getMateria().getNombre() + " - Asistencia: " + i.getPorcentajeAsistencia() + "%");
             }
         }
+        System.out.println("\n3. MATERIAS APROBADAS:");
+        double max = 0, min = 10, sumaAp = 0;
+        int cantAp = 0;
+        for (InscripcionMateria i : alumno.getMaterias())
+        {
+            if (i.estaAprobado())
+            {
+                double p = i.getNota();
+                System.out.println("- " + i.getMateria().getNombre() + " | Promedio: " + p);
+                if (p > max) max = p;
+                if (p < min) min = p;
+                sumaAp += p;
+                cantAp++;
+            }
+        }
+        if (cantAp == 0)
+            System.out.println("No hay materias aprobadas.");
+        else
+            System.out.println("Max: " + max + " | Min: " + min + " | Promedio: " + (sumaAp/cantAp));
+
         System.out.println("==========================================");
     }
 }
